@@ -1,12 +1,28 @@
 ﻿@{
     ViewBag.Title = "Home Page";
-}
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+    ViewBag.Home = "active";
+
+    ViewBag.Banner =
+        "<section class='banner-area' id='home'>" +
+            "<div class='container'>" +
+                "<div class='row fullscreen d-flex align-items-center'>" +
+                    "<div class='banner-content col-lg-7 col-md-6 justify-content-center'>" +
+                        "<h6 class='text-uppercase'>Don’t look further, This is our Leader</h6>" +
+                        "<h1>All things need to repair</h1>" +
+                        "<p class='text-white'>" +
+                            "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim.sed do eiusmod tempor incididunt.." +
+                        "</p>" +
+                        "<a href='#' class='primary-btn header-btn text-uppercase mt-10'>Get Started</a>" +
+                    "</div>" +
+                   " <div class='banner-img col-lg-5 col-md-6 align-self-end'>" +
+                        "<img class='img-fluid' src='img/banner-img.png' alt=''>" +
+                    "</div>" +
+                "</div>" +
+            "</div>" +
+        "</section>"
+    ;
+}
 
 <div class="row">
     <div class="col-md-4">
