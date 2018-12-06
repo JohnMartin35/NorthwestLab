@@ -20,5 +20,7 @@ namespace NorthwestLab.Models
         public virtual Invoices Invoices { get; set; }
 
         public DateTime DatePaid { get; set; }
+
+        public double AmountPaid { get; set; }
     }
 }

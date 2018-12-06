@@ -12,7 +12,7 @@ namespace NorthwestLab.Controllers
     public class HomeController : Controller
     {
         private NorthwestDbContext db = new NorthwestDbContext();
-
+        [Authorize]
         public ActionResult Index()
         {
             string currentUserID = User.Identity.GetUserId();

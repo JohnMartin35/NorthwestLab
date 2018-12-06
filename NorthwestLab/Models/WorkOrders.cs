@@ -21,5 +21,7 @@ namespace NorthwestLab.Models
         public DateTime DateReceived { get; set; }
 
         public DateTime DateDue { get; set; }
+
+        public double QuotedPrice { get; set; }
     }
 }

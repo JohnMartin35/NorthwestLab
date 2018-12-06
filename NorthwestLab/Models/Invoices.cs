@@ -16,5 +16,6 @@ namespace NorthwestLab.Models
         public virtual WorkOrders WorkOrders { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime DateSent { get; set; }
+        public double FinalPrice { get; set; }
     }
 }
