@@ -7,12 +7,14 @@ using System.Web;
 
 namespace NorthwestLab.Models
 {
-    [Table("State")]
-    public class State
+    [Table("Compounds")]
+    public class Compounds
     {
         [Key]
-        public int State_ProvinceID { get; set; }
-        public string Abbriviation { get; set; }
+        public int CompoundID { get; set; }
         public string Name { get; set; }
+        public string Description { get; set; }
+        public int CustomerID { get; set; }
+        public virtual Customers Customers { get; set; }
     }
 }
