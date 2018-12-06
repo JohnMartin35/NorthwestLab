@@ -8,7 +8,7 @@ using System.Web;
 namespace NorthwestLab.Models
 {
     [Table("State")]
-    public class State
+    public class State_Province
     {
         [Key]
         public int State_ProvinceID { get; set; }

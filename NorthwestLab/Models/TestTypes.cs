@@ -14,7 +14,7 @@ namespace NorthwestLab.Models
         public int TestTypeID { get; set; }
         public string TestName { get; set; }
         public string TestProtocol { get; set; }
-        public string TimeToComplete { get; set; }
+        public DateTime TimeToComplete { get; set; }
         public double BasePrice { get; set; }
     }
 }
