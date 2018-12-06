@@ -13,9 +13,7 @@ namespace NorthwestLab.Models
         [Key]
         public int EmployeeID { get; set; }
 
-        [ForeignKey("ApplicationUser")]
         public string UserID { get; set; }
-        public virtual ApplicationUser ApplicationUser { get; set; }
 
         public string FirstName { get; set; }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
@@ -9,6 +10,7 @@ namespace NorthwestLab.Models
     [Table("Assays")]
     public class Assays
     {
+        [Key]
         public int AssayID { get; set; }
         public int AssayTypeID { get; set; }
         public virtual AssayTypes AssayTypes { get; set; }

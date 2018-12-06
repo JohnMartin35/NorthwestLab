@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
@@ -9,6 +10,7 @@ namespace NorthwestLab.Models
     [Table("SampleTubes")]
     public class SampleTubes
     {
+        [Key]
         public int SampleTubeID { get; set; }
 
         public int SampleID { get; set; }
