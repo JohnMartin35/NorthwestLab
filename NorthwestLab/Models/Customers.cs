@@ -33,6 +33,7 @@ namespace NorthwestLab.Models
 
         //Foreign Key Connect to State table
         public int State_ProvinceID { get; set; }
+        public virtual State_Province State_Province { get; set; }
 
         [Display(Name = "Zip Code"), Required(ErrorMessage = "Zip code is required")]
         [RegularExpression(@"^\d{5}-\d{4}|\d{5}$", ErrorMessage = "Zip Code must be 5 (#####) or 9 digits (#####-####)")]

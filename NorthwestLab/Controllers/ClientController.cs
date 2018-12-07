@@ -34,6 +34,15 @@ namespace NorthwestLab.Controllers
         [AllowAnonymous]
         public ActionResult Create()
         {
+            List<State_Province> dropdown = new List<State_Province>();
+
+            foreach (State_Province state_province in db.State_ProvinceTable)
+            {
+                dropdown.Add(state_province);
+            }
+
+            ViewBag.stateDropDown = dropdown;
+
             return View();
         }
 
@@ -42,8 +51,13 @@ namespace NorthwestLab.Controllers
         {
             if (ModelState.IsValid)
             {
+                customer.UserID = User.Identity.GetUserId();
+                db.CustomerTable.Add(customer);
+                db.SaveChanges();
 
+                return RedirectToAction("Index", "Client", null);
             }
+
             return View(customer);
 
         }

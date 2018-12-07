@@ -12,16 +12,27 @@ namespace NorthwestLab.Controllers
     public class HomeController : Controller
     {
         private NorthwestDbContext db = new NorthwestDbContext();
-        [Authorize]
+
         public ActionResult Index()
         {
-            string currentUserID = User.Identity.GetUserId();
+            if (!User.Identity.IsAuthenticated)
+            {
+                return View();
+            }
+            else if (User.IsInRole("Client"))
+            {
+                return RedirectToAction("Index", "Client", null);
+            }
+            else if (User.IsInRole("Lab Technician"))
+            {
+                return View();
+            }
+            else
+            {
+                return View();
+            }
 
-            Customers currentCustomer = db.CustomerTable.Where(c => c.UserID == currentUserID).First();
-
-            ViewBag.output += currentCustomer.CompanyName + ' ' + currentCustomer.StreetAddress + ' ' + currentCustomer.City + ' ' + currentCustomer.State_ProvinceID + ' ' + currentCustomer.Zip;
-
-            return View();
+           
         }
 
         public ActionResult About()
