@@ -237,8 +237,10 @@
     <Compile Include="Models\QuantitativeFileTypes.cs" />
     <Compile Include="Models\QuantitativeResults.cs" />
     <Compile Include="Models\QuotesViewModel.cs" />
+    <Compile Include="Models\ReceiveSampleViewModel.cs" />
     <Compile Include="Models\RoleViewModel.cs" />
     <Compile Include="Models\Samples.cs" />
+    <Compile Include="Models\SamplesViewModel.cs" />
     <Compile Include="Models\SampleTubes.cs" />
     <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\State_Province.cs" />

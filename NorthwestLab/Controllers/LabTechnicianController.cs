@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using NorthwestLab.DAL;
 using NorthwestLab.Models;
 using Microsoft.AspNet.Identity;
+using System.Data;
+using System.Data.Entity;
 
 namespace NorthwestLab.Controllers
 {
@@ -23,18 +25,40 @@ namespace NorthwestLab.Controllers
 
         public ActionResult ReceiveSample()
         {
-            List<Samples> samples = db.SampleTable.Where(s => s.CompoundReceiptID == null).OrderBy(s => s.WorkOrderID).ToList();
-            return View(samples);
+            ReceiveSampleViewModel model = new ReceiveSampleViewModel();
+            foreach (Samples s in db.SampleTable.Where(samp => samp.CompoundReceiptID == null).Include( i => i.Compounds))
+            {
+                model.Samples.Add(new SamplesViewModel() { OriginSampleID = s.SampleID, CompoundID = s.CompoundID, WorkOrderID = s.WorkOrderID, SampleSequenceID = s.SampleSequenceID,IsSelected = false });
+            }
+            return View(model);
         }
 
         [HttpPost]
-        public ActionResult RecieveSample(CompoundReceipts newCompound)
+        public ActionResult ReceiveSample(ReceiveSampleViewModel model)
         {
             if (ModelState.IsValid)
             {
+                string userID = User.Identity.GetUserId();
+                db.CompoundReceiptTable.Add(new CompoundReceipts()
+                {
+                    ReceivedByID = db.EmployeeTable.FirstOrDefault(e => e.UserID == userID).EmployeeID,
+                    DateArrived = DateTime.Now
+                });
+                db.SaveChanges();
+                foreach (SamplesViewModel s in model.Samples)
+                {
+                    if (s.IsSelected)
+                    {
+                        int receiptID = db.CompoundReceiptTable.Max(ct => ct.CompoundReceiptID);
+                        Samples sample = db.SampleTable.Find(s.OriginSampleID);
+                        sample.CompoundReceiptID = receiptID; ;
+                        db.SaveChanges();
+                    }
+
+                }
                 return View("Index");
             }
-            return View(newCompound);
+            return View(model);
         }
 
         public ActionResult LogTime(int id)

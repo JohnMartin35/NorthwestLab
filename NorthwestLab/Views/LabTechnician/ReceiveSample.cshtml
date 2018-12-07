@@ -1,4 +1,4 @@
-﻿@model IEnumerable<NorthwestLab.Models.Samples>
+﻿@model NorthwestLab.Models.ReceiveSampleViewModel
 
 @{
     ViewBag.Title = "ReceiveSample";
@@ -6,39 +6,48 @@
 
 <h2>ReceiveSample</h2>
 
+@using (Html.BeginForm())
+{
+    <table class="table">
+        <tr>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.WorkOrderID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Compounds.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SampleSequenceID)
-        </th>
-        <th></th>
-    </tr>
+            <th>
+                Work Order ID
+            </th>
+            <th>
+                Compound ID
+            </th>
+            <th>
+                Sample Sequence Number
+            </th>
+            <th>Received</th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.WorkOrderID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Compounds.Name)
-        </td>
+        @for (int i = 0; i < Model.Samples.Count; i++)
+        {
+        <tr>
+            <td>
+                @Html.HiddenFor(m=>m.Samples[i].WorkOrderID)
+                @Html.DisplayFor(m => m.Samples[i].WorkOrderID)
+            </td>
+            <td>
+                @Html.HiddenFor(m => m.Samples[i].CompoundID)
+                @Html.DisplayFor(m => m.Samples[i].CompoundID)
+            </td>
 
-        <td>
-            @Html.DisplayFor(modelItem => item.SampleSequenceID)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.SampleID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.SampleID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.SampleID })
-        </td>
-    </tr>
+            <td>
+                @Html.HiddenFor(m => m.Samples[i].SampleSequenceID)
+                @Html.DisplayFor(m => m.Samples[i].SampleSequenceID)
+            </td>
+            <td>
+                @Html.HiddenFor(m=> m.Samples[i].OriginSampleID)
+                @Html.CheckBoxFor(m => m.Samples[i].IsSelected)
+            </td>
+        </tr>
+        }
+
+
+    </table>
+    <input type="submit" class="btn btn-primary">
 }
 
-</table>
