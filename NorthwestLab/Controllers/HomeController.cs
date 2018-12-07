@@ -25,7 +25,7 @@ namespace NorthwestLab.Controllers
             }
             else if (User.IsInRole("Lab Technician"))
             {
-                return View();
+                return RedirectToAction("Index","LabTechnician",null);
             }
             else
             {
