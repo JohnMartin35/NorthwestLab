@@ -7,12 +7,14 @@ using System.Web;
 
 namespace NorthwestLab.Models
 {
-    [Table("State")]
+    [Table("State_Province")]
     public class State_Province
     {
         [Key]
         public int State_ProvinceID { get; set; }
-        public string Abbriviation { get; set; }
+
+       
+        public string Abbreviation { get; set; }
         public string Name { get; set; }
     }
 }

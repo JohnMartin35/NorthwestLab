@@ -12,8 +12,6 @@ namespace NorthwestLab.Models
     {
         [Key]
         public int CompoundReceiptID { get; set; }
-        public int WorkOrderID { get; set; }
-        public virtual WorkOrders WorkOrders { get; set; }
         public DateTime DateArrived { get; set; }
         [ForeignKey("Employees")]
         public int ReceivedByID { get; set; }

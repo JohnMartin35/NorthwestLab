@@ -14,6 +14,9 @@ namespace NorthwestLab.Models
         public int SampleID { get; set; }
         public int SampleSequenceID { get; set; }
 
+        public int WorkOrderID { get; set; }
+        public virtual WorkOrders WorkOrders { get; set; }
+
         public int CompoundID { get; set; }
         public virtual Compounds Compounds { get; set; }
 

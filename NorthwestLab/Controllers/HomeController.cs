@@ -12,15 +12,9 @@ namespace NorthwestLab.Controllers
     public class HomeController : Controller
     {
         private NorthwestDbContext db = new NorthwestDbContext();
-        [Authorize]
+       
         public ActionResult Index()
         {
-            string currentUserID = User.Identity.GetUserId();
-
-            Customers currentCustomer = db.CustomerTable.Where(c => c.UserID == currentUserID).First();
-
-            ViewBag.output += currentCustomer.CompanyName + ' ' + currentCustomer.StreetAddress + ' ' + currentCustomer.City + ' ' + currentCustomer.State_ProvinceID + ' ' + currentCustomer.Zip;
-
             return View();
         }
 

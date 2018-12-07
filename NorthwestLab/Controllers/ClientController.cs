@@ -34,22 +34,41 @@ namespace NorthwestLab.Controllers
         [AllowAnonymous]
         public ActionResult Create()
         {
+            List<State_Province> dropdown = new List<State_Province>();
+            foreach (State_Province s in db.State_ProvinceTable)
+                dropdown.Add(s);
+            ViewBag.stateDropDown = dropdown;
             return View();
         }
 
         [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(Customers customer)
         {
             if (ModelState.IsValid)
             {
-
+                db.CustomerTable.Add(customer);
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
+
             return View(customer);
 
         }
 
+        public ActionResult Quotes()
+        {
 
+            return View();
+        }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Quotes(QuotesViewModel selection)
+        {
+            return View();
+        }
 
 
     }
