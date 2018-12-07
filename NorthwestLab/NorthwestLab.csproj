@@ -197,6 +197,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LabTechnicianController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="DAL\NorthwestDbContext.cs" />
@@ -236,14 +237,18 @@
     <Compile Include="Models\QuantitativeFileTypes.cs" />
     <Compile Include="Models\QuantitativeResults.cs" />
     <Compile Include="Models\QuotesViewModel.cs" />
+    <Compile Include="Models\ReceiveSampleViewModel.cs" />
     <Compile Include="Models\RoleViewModel.cs" />
     <Compile Include="Models\Samples.cs" />
+    <Compile Include="Models\SamplesViewModel.cs" />
     <Compile Include="Models\SampleTubes.cs" />
     <Compile Include="Models\Schedule.cs" />
+    <Compile Include="Models\ScheduleViewModel.cs" />
     <Compile Include="Models\State_Province.cs" />
     <Compile Include="Models\SummaryReports.cs" />
     <Compile Include="Models\TestMaterialTypes.cs" />
     <Compile Include="Models\Tests.cs" />
+    <Compile Include="Models\TestScheduleViewModel.cs" />
     <Compile Include="Models\TestTimeLog.cs" />
     <Compile Include="Models\TestTypeMaterials.cs" />
     <Compile Include="Models\TestTypes.cs" />
@@ -648,6 +653,12 @@
     <Content Include="Views\Compounds\Edit.cshtml" />
     <Content Include="Views\Compounds\Compounds.cshtml" />
     <Content Include="Views\Client\AddCompounds.cshtml" />
+    <Content Include="Views\LabTechnician\LogTime.cshtml" />
+    <Content Include="Views\LabTechnician\ReceiveSample.cshtml" />
+    <Content Include="Views\LabTechnician\Index.cshtml" />
+    <Content Include="Views\LabTechnician\Schedule.cshtml" />
+    <Content Include="Views\Home\Feedback.cshtml" />
+    <Content Include="Views\Home\Catalog.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

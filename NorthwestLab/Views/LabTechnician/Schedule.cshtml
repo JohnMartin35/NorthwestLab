@@ -1,0 +1,68 @@
+﻿@model NorthwestLab.Models.ScheduleViewModel
+
+@{
+    ViewBag.Title = "Schedule";
+}
+
+<h2>Schedule Test</h2>
+
+@using (Html.BeginForm())
+{
+<table class="table">
+    <tr>
+        <th>
+            Test ID
+        </th>
+        <th>
+            Test
+        </th>
+        <th>
+            Assay
+        </th>
+        <th>
+            Customer Approved
+        </th>
+        <th>
+            Due Date
+        </th>
+        <th>
+            Start Date
+        </th>
+    </tr>
+    @for(int i=0; i<Model.Tests.Count; i++)
+    {
+    <tr>
+        <td>
+            @Html.HiddenFor(m => m.Tests[i].TestID)
+            @Html.DisplayFor(m => m.Tests[i].TestID)
+
+        </td>
+        <td>
+
+            @Html.HiddenFor(m => m.Tests[i].AssayTestTypeID)
+            @Html.DisplayFor(m => m.Tests[i].AssayTestTypes.TestTypes.TestName)
+
+        </td>
+        <td>
+
+            @Html.DisplayFor(m => m.Tests[i].AssayTestTypes.AssayTypes.AssayTitle)
+
+        </td>
+        <td>
+            @Html.HiddenFor(m => m.Tests[i].CustomerApproval)
+            @Html.DisplayFor(m => m.Tests[i].CustomerApproval)
+
+        </td>
+        <td>
+            @Html.HiddenFor(m => m.Tests[i].DueDate)
+            @Html.DisplayFor(m => m.Tests[i].DueDate)
+
+        </td>
+        <td>
+            @Html.TextBoxFor(m=> m.Tests[i].StartDate, new { @class = "form-control datepicker" })
+        </td>
+    </tr>
+    }
+</table>
+    <input type="submit" />
+}

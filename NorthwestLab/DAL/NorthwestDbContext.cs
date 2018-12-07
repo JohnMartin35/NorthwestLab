@@ -47,6 +47,7 @@ namespace NorthwestLab.DAL
         public DbSet<Transactions> TransactionTable { get; set; }
         public DbSet<WorkOrders> WorkOrderTable { get; set; }
 
+
     }
 
 }

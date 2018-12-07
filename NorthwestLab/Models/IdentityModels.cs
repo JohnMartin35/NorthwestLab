@@ -46,5 +46,19 @@ namespace NorthwestLab.Models
         public System.Data.Entity.DbSet<NorthwestLab.Models.WorkOrders> WorkOrders { get; set; }
 
         public System.Data.Entity.DbSet<NorthwestLab.Models.Customers> Customers { get; set; }
+
+        public System.Data.Entity.DbSet<NorthwestLab.Models.TestTimeLog> TestTimeLogs { get; set; }
+
+        public System.Data.Entity.DbSet<NorthwestLab.Models.Employees> Employees { get; set; }
+
+        public System.Data.Entity.DbSet<NorthwestLab.Models.Tests> Tests { get; set; }
+
+        public System.Data.Entity.DbSet<NorthwestLab.Models.CompoundReceipts> CompoundReceipts { get; set; }
+
+        public System.Data.Entity.DbSet<NorthwestLab.Models.Samples> Samples { get; set; }
+
+        public System.Data.Entity.DbSet<NorthwestLab.Models.Assays> Assays { get; set; }
+
+        public System.Data.Entity.DbSet<NorthwestLab.Models.Compounds> Compounds { get; set; }
     }
 }

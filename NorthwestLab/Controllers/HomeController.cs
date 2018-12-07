@@ -25,7 +25,7 @@ namespace NorthwestLab.Controllers
             }
             else if (User.IsInRole("Lab Technician"))
             {
-                return View();
+                return RedirectToAction("Index","LabTechnician",null);
             }
             else
             {
@@ -33,6 +33,14 @@ namespace NorthwestLab.Controllers
             }
 
            
+        }
+        public ActionResult Catalog()
+        {
+            return View();
+        }
+        public ActionResult Feedback()
+        {
+            return View();
         }
 
         public ActionResult About()
@@ -44,7 +52,7 @@ namespace NorthwestLab.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Contact a Sales Representative Now!";
 
             return View();
         }

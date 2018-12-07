@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Feedback";
+}
+
+<h2>Feedback</h2>
+
+Please let us know about your exprience!
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            <textarea name="Text1" cols="100" rows="10"></textarea>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Submit" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}

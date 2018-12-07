@@ -1,30 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Data.Entity;
+using System.Data;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NorthwestLab.Models
 {
-    [Table("Samples")]
-    public class Samples
+    public class SamplesViewModel
     {
-        [Key]
         public int SampleID { get; set; }
+
+        public int OriginSampleID { get; set; }
+
         public int SampleSequenceID { get; set; }
 
         public int WorkOrderID { get; set; }
         public virtual WorkOrders WorkOrders { get; set; }
 
+        [ForeignKey("Compounds")]
         public int CompoundID { get; set; }
         public virtual Compounds Compounds { get; set; }
-
-        public int? CompoundReceiptID { get; set; }
-        public virtual CompoundReceipts CompoundReceipts { get; set; }
-
-        public int AssayID { get; set; }
-        public virtual Assays Assays { get; set; }
 
         public string Appearance { get; set; }
 
@@ -35,5 +32,7 @@ namespace NorthwestLab.Models
         public double? MolecularMass { get; set; }
 
         public double? MaximumToleratedDose { get; set; }
+
+        public bool IsSelected { get; set; }
     }
 }
