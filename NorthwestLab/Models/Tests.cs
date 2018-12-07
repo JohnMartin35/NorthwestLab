@@ -19,10 +19,10 @@ namespace NorthwestLab.Models
         public int DependencyID { get; set; }
         public virtual DependencyTypes DependencyTypes { get; set; }
 
-        public int QuantitativeResultID { get; set; }
+        public int? QuantitativeResultID { get; set; }
         public virtual QuantitativeResults QuantitativeResults { get; set; }
 
-        public int QualitativeResultID { get; set; }
+        public int? QualitativeResultID { get; set; }
         public virtual QualitativeResults QualitativeResults { get; set; }
 
         public bool CustomerApproval { get; set; }
