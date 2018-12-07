@@ -256,6 +256,7 @@
     <Compile Include="Models\WorkOrders.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\CompoundAssaysViewModel.cs" />
     <Compile Include="ViewModels\CompoundsWorkOrdersViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -647,11 +648,6 @@
     <Content Include="Views\Client\Create.cshtml" />
     <Content Include="Views\Client\Quotes.cshtml" />
     <Content Include="Views\Client\NewWorkOrder.cshtml" />
-    <Content Include="Views\Compounds\CreateCompound.cshtml" />
-    <Content Include="Views\Compounds\Delete.cshtml" />
-    <Content Include="Views\Compounds\Details.cshtml" />
-    <Content Include="Views\Compounds\Edit.cshtml" />
-    <Content Include="Views\Compounds\Compounds.cshtml" />
     <Content Include="Views\Client\AddCompounds.cshtml" />
     <Content Include="Views\LabTechnician\LogTime.cshtml" />
     <Content Include="Views\LabTechnician\ReceiveSample.cshtml" />

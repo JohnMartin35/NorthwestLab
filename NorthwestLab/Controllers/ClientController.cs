@@ -201,9 +201,13 @@ namespace NorthwestLab.Controllers
                 newAssays.Add(newAssay);
             }
 
-            
+            CompoundAssaysViewModel viewModel = new CompoundAssaysViewModel();
 
-            return View(newAssays);
+            viewModel.assaysList = newAssays;
+
+            ViewBag.currentWorkOrderID = currentWorkOrderID;
+
+            return View(viewModel);
         }
 
         // POST: Compounds/Create
@@ -211,17 +215,51 @@ namespace NorthwestLab.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Add([Bind(Include = "CompoundID,Name,Description,CustomerID")] Compounds compounds)
+        public ActionResult Add(CompoundAssaysViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
-                db.CompoundsTable.Add(compounds);
+                db.CompoundsTable.Add(viewModel.newCompound);
+                
+                foreach (Assays assay in viewModel.assaysList)
+                {
+                    if (assay.Selected)
+                    {
+                        db.AssayTable.Add(assay);
+
+                        Samples newSample = new Samples();
+                        newSample.CompoundID = viewModel.newCompound.CompoundID;
+                        newSample.AssayID = assay.AssayID;
+                        newSample.IndicatedWeight = 3.0;
+                        newSample.WorkOrderID = assay.WorkOrderID;
+
+
+                        db.SampleTable.Add(newSample);
+
+                        foreach (Tests test in assay.Tests)
+                        {
+                            if (test.Selected)
+                            {
+                                test.DependencyID = 1;
+                            }
+                            else
+                            {
+                                test.DependencyID = 2;
+                            }
+
+                            test.AssayID = assay.AssayID;
+
+                            db.TestTable.Add(test);
+
+                        }
+                    }
+                }
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CustomerID = new SelectList(db.CustomerTable, "CustomerID", "UserID", compounds.CustomerID);
-            return View(compounds);
+            return View(viewModel);
         }
 
         // GET: Compounds/Edit/5
