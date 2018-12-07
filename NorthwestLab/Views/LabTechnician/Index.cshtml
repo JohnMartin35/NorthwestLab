@@ -4,6 +4,9 @@
     ViewBag.Title = "Tests";
 }
 
+@Html.ActionLink("Schedule Test", "Schedule", null, new { @class = "btn btn-primary mt-3" })
+@Html.ActionLink("Receive Samples", "ReceiveSample", null, new {@class="btn btn-primary mt-3"})
+
 <h2>Tests in progress</h2>
 <table class="table">
     <tr>
@@ -28,27 +31,27 @@
     {
         if (item.QualitativeResultID == null)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Assays.WorkOrderID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TestID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AssayTestTypes.TestTypeID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DependencyTypes.Type)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomerApproval)
-            </td>
-            <td>
-                @Html.ActionLink("Details", "ComingSoon","Home",null, new { id = item.TestID })|
-                @Html.ActionLink("Enter Time", "LogTime", new { id = item.TestID })
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Assays.WorkOrderID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TestID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AssayTestTypes.TestTypeID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DependencyTypes.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerApproval)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "ComingSoon", "Home", null, new { id = item.TestID })|
+                    @Html.ActionLink("Enter Time", "LogTime", new { id = item.TestID })
+                </td>
+            </tr>
         }
     }
 </table>
@@ -76,27 +79,27 @@
     {
         if (item.QualitativeResultID != null)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Assays.WorkOrderID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TestID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AssayTestTypes.TestTypeID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DependencyTypes.Type)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomerApproval)
-            </td>
-            <td>
-                @Html.ActionLink("Details", "Details", new { id = item.TestID })|
-                @Html.ActionLink("Enter Time", "LogTime", new { id = item.TestID })
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Assays.WorkOrderID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TestID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AssayTestTypes.TestTypeID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DependencyTypes.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerApproval)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.TestID })|
+                    @Html.ActionLink("Enter Time", "LogTime", new { id = item.TestID })
+                </td>
+            </tr>
         }
     }
 </table>
