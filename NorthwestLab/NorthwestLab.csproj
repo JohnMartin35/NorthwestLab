@@ -643,6 +643,8 @@
     <Content Include="Views\Client\Quotes.cshtml" />
     <Content Include="Views\LabTechnician\LogTime.cshtml" />
     <Content Include="Views\LabTechnician\ReceiveSample.cshtml" />
+    <Content Include="Views\Home\Feedback.cshtml" />
+    <Content Include="Views\Home\Catalog.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

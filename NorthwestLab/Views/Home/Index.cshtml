@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "";
 
     ViewBag.Home = "active";
 
@@ -8,14 +8,14 @@
             "<div class='container'>" +
                 "<div class='row fullscreen d-flex align-items-center'>" +
                     "<div class='banner-content col-lg-7 col-md-6 justify-content-center'>" +
-                        "<h6 class='text-uppercase'>Don’t look further, This is our Leader</h6>" +
-                        "<h1>All things need to repair</h1>" +
+                        "<h6 class='text-uppercase'>Your Resource For All Assay Analysis!</h6>" +
+                        "<h1>Northwest Labs</h1>" +
                         "<p class='text-white'>" +
-                            "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim.sed do eiusmod tempor incididunt.." +
+                            "An International Leader In Assay Testing of Pharmaceutical Drugs. We Promise Quick & Precise Drug Testing To Help Your Business Grow While Keeping Your Customers Healthy!" +
                         "</p>" +
-                        "<a href='#' class='primary-btn header-btn text-uppercase mt-10'>Get Started</a>" +
+                        "<a href='/Account/Login' class='primary-btn header-btn text-uppercase mt-10'>Get Started</a>" +
                     "</div>" +
-                   " <div class='banner-img col-lg-5 col-md-6 align-self-end'>" +
+                   "<div class='banner-img col-lg-5 col-md-6 align-self-end'>" +
                         "<img class='img-fluid' src='img/banner-img.png' alt=''>" +
                     "</div>" +
                 "</div>" +
@@ -26,20 +26,31 @@
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Getting started</h2>
+        <h3>Getting started</h3>
         <p>
             @ViewBag.output
         </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <br />
+        <p><a class="btn btn-default" href="@Url.Action("About", "Home", null)">Learn more &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <h3>
+            What is an Assay Analysis?
+        </h3>
+        <br />
+        <p>
+            An assay analysis is a set of physical, chemical, atomic, and biological tests that are conducted on a chemical compound or drug to determine its characteristics.
+        </p>
+        <p><a class="btn btn-default" href="@Url.Action("About", "Home", null)">Learn more &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <h3>
+            We want to hear from you!
+        </h3>
+        <br />
+        <p>
+            Recently had an Assay Analysis Completed? Let us know how it went! We aim to make your experience better.
+        </p>
+        <p><a class="btn btn-default" href="@Url.Action("Feedback","Home")">Submit Feedback &raquo;</a></p>
     </div>
 </div>
