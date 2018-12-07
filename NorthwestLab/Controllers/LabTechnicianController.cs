@@ -19,7 +19,19 @@ namespace NorthwestLab.Controllers
         // GET: LabTechnician
         public ActionResult Index()
         {
-            return View();
+            
+            return View(db.TestTable.OrderBy(t => t.StartDate).ToList());
+        }
+
+        public ActionResult Schedule()
+        {
+            ScheduleViewModel model = new ScheduleViewModel();
+            foreach (Tests test in db.TestTable.Where(t => t.StartDate == null))
+            {
+                model.Tests.Add(new TestScheduleViewModel() { TestID = test.TestID, AssayTestTypeID = test.AssayTestTypeID, CustomerApproval = test.CustomerApproval, DueDate = test.Assays.WorkOrders.DateDue});
+            }
+            model.Tests.OrderBy(t => t.DueDate);
+            return View(model);
         }
 
 

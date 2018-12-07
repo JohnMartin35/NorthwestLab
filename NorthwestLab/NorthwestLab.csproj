@@ -243,10 +243,12 @@
     <Compile Include="Models\SamplesViewModel.cs" />
     <Compile Include="Models\SampleTubes.cs" />
     <Compile Include="Models\Schedule.cs" />
+    <Compile Include="Models\ScheduleViewModel.cs" />
     <Compile Include="Models\State_Province.cs" />
     <Compile Include="Models\SummaryReports.cs" />
     <Compile Include="Models\TestMaterialTypes.cs" />
     <Compile Include="Models\Tests.cs" />
+    <Compile Include="Models\TestScheduleViewModel.cs" />
     <Compile Include="Models\TestTimeLog.cs" />
     <Compile Include="Models\TestTypeMaterials.cs" />
     <Compile Include="Models\TestTypes.cs" />
@@ -645,6 +647,8 @@
     <Content Include="Views\Client\Quotes.cshtml" />
     <Content Include="Views\LabTechnician\LogTime.cshtml" />
     <Content Include="Views\LabTechnician\ReceiveSample.cshtml" />
+    <Content Include="Views\LabTechnician\Index.cshtml" />
+    <Content Include="Views\LabTechnician\Schedule.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
