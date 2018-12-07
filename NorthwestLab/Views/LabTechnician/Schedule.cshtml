@@ -8,7 +8,7 @@
 
 @using (Html.BeginForm())
 {
-<table>
+<table class="table">
     <tr>
         <th>
             Test ID
@@ -38,6 +38,7 @@
 
         </td>
         <td>
+
             @Html.HiddenFor(m => m.Tests[i].AssayTestTypeID)
             @Html.DisplayFor(m => m.Tests[i].AssayTestTypes.TestTypes.TestName)
 
@@ -58,7 +59,7 @@
 
         </td>
         <td>
-            @Html.TextBoxFor(m=> m.Tests[i].StartDate)
+            @Html.TextBoxFor(m=> m.Tests[i].StartDate, new { @class = "form-control datepicker" })
         </td>
     </tr>
     }

@@ -28,13 +28,13 @@ namespace NorthwestLab.Controllers
             ScheduleViewModel model = new ScheduleViewModel();
             foreach (Tests test in db.TestTable.Where(t => t.StartDate == null))
             {
-                model.Tests.Add(new TestScheduleViewModel() { TestID = test.TestID, AssayTestTypeID = test.AssayTestTypeID, CustomerApproval = test.CustomerApproval, DueDate = test.Assays.WorkOrders.DateDue});
+                model.Tests.Add(new TestScheduleViewModel() { TestID = test.TestID, AssayTestTypeID = test.AssayTestTypeID, CustomerApproval = test.CustomerApproval, StartDate = DateTime.Today });//, DueDate = test.Assays.WorkOrders.DateDue});
             }
             model.Tests.OrderBy(t => t.DueDate);
             return View(model);
         }
 
-
+        //Get: ReceiveSamples
         public ActionResult ReceiveSample()
         {
             ReceiveSampleViewModel model = new ReceiveSampleViewModel();
@@ -75,7 +75,8 @@ namespace NorthwestLab.Controllers
 
         public ActionResult LogTime(int id)
         {
-            Employees emp = db.EmployeeTable.FirstOrDefault(e => e.UserID == User.Identity.GetUserId());
+            string userID = User.Identity.GetUserId();
+            Employees emp = db.EmployeeTable.FirstOrDefault(e => e.UserID == userID);
             TestTimeLog test = new TestTimeLog() { TestID = id , EmployeeID = emp.EmployeeID};
             return View(test);
         }
@@ -85,7 +86,11 @@ namespace NorthwestLab.Controllers
         {
             if (ModelState.IsValid)
             {
-                return View("Index");
+                TestTimeLog tlog = db.TestTimeLogTable.FirstOrDefault(l=>l.TestID == log.TestID);
+                tlog.HoursWorked = log.HoursWorked;
+                db.SaveChanges();
+
+                return RedirectToAction("Index");
             }
             return View(log);
         }
