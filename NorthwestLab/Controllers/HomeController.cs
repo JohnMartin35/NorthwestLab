@@ -34,6 +34,10 @@ namespace NorthwestLab.Controllers
 
            
         }
+        public ActionResult ComingSoon()
+        {
+            return View();
+        }
         public ActionResult Catalog()
         {
             return View();
