@@ -13,8 +13,11 @@ namespace NorthwestLab.Models
         [Key]
         public int CompoundReceiptID { get; set; }
         public DateTime DateArrived { get; set; }
+
         [ForeignKey("Employees")]
         public int ReceivedByID { get; set; }
         public virtual Employees Employees { get; set; }
+
+        public virtual IEnumerable<Samples> Samples  { get; set; }
     }
 }

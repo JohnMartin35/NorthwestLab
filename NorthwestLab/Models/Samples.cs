@@ -20,7 +20,7 @@ namespace NorthwestLab.Models
         public int CompoundID { get; set; }
         public virtual Compounds Compounds { get; set; }
 
-        public int CompoundReceiptID { get; set; }
+        public int? CompoundReceiptID { get; set; }
         public virtual CompoundReceipts CompoundReceipts { get; set; }
 
         public int AssayID { get; set; }
@@ -28,12 +28,12 @@ namespace NorthwestLab.Models
 
         public string Appearance { get; set; }
 
-        public double IndicatedWeight { get; set; }
+        public double? IndicatedWeight { get; set; }
 
-        public double ActualWeight { get; set; }
+        public double? ActualWeight { get; set; }
 
-        public double MolecularMass { get; set; }
+        public double? MolecularMass { get; set; }
 
-        public double MaximumToleratedDose { get; set; }
+        public double? MaximumToleratedDose { get; set; }
     }
 }
