@@ -12,8 +12,6 @@ namespace NorthwestLab.Models
     {
         [Key]
         public int State_ProvinceID { get; set; }
-
-       
         public string Abbreviation { get; set; }
         public string Name { get; set; }
     }

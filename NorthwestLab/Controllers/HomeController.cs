@@ -12,10 +12,27 @@ namespace NorthwestLab.Controllers
     public class HomeController : Controller
     {
         private NorthwestDbContext db = new NorthwestDbContext();
-       
+
         public ActionResult Index()
         {
-            return View();
+            if (!User.Identity.IsAuthenticated)
+            {
+                return View();
+            }
+            else if (User.IsInRole("Client"))
+            {
+                return RedirectToAction("Index", "Client", null);
+            }
+            else if (User.IsInRole("Lab Technician"))
+            {
+                return View();
+            }
+            else
+            {
+                return View();
+            }
+
+           
         }
 
         public ActionResult About()
