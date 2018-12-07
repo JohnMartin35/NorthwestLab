@@ -20,5 +20,14 @@ namespace NorthwestLab.Models
         public int AssayResultTypeID { get; set; }
         public virtual AssayResultTypes AssayResultTypes { get; set; }
 
+        [NotMapped]
+        public bool Selected { get; set; }
+        [NotMapped]
+        public string AssayTitle { get; set; }
+        [NotMapped]
+        public string Description { get; set; }
+        [NotMapped]
+        public List<Tests> Tests { get; set; }
+
     }
 }

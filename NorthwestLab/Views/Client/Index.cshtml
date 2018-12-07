@@ -4,13 +4,16 @@
     ViewBag.Title = "WorkOrders";
 }
 
-<h2>Open Work Orders</h2>
+<h2>Work Orders</h2>
 
 <p>
-    @Html.ActionLink("Create New Work Order", "Create", null, new { @class = "btn btn-primary" })
-    @Html.ActionLink("Request Quote", "Quotes", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Create Work Order", "NewWorkOrder", null, new { @class = "btn btn-primary mt-3" })
+    @*
+        @Html.ActionLink("Request Quote", "Quotes", null, new { @class = "btn btn-primary" })
+    *@
 </p>
-<table class="table">
+<h4 class="mt-4">Open Work Orders</h4>
+<table class="table mt-4">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.WorkOrderID)
@@ -58,7 +61,7 @@
 
 </table>
 </ br>
-<h2>Completed Work Orders</h2>
+<h4>Completed Work Orders</h4>
 
 <table class="table">
     <tr>

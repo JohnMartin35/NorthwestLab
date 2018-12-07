@@ -1,0 +1,85 @@
+﻿@model List<NorthwestLab.Models.Assays>
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<center><h2>Add Compound</h2></center>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+<div class="faq-area mt-md-4">
+    <div class="container">
+        <div class="row faq-contents justify-content-center align-items-center">
+            <div class="col-lg-8 faq-left">
+                <label for="newCompound" title="Compound Name">Compound Name</label>
+                <input type="text" class="form-group" id="newCompound"/>
+                <div class="mn-accordion" id="accordion">
+                    @foreach (var assay in Model)
+                    {
+
+                        <!--Accordion item-->
+                       
+                        <div class="accordion-item">
+                            <div class="row accordion-heading">
+                                <div class="col-md-1">
+                                    @Html.CheckBoxFor(item => assay.Selected)
+                                </div>
+                                <div class=" col-md-11">
+                                    <h3>@Html.DisplayFor(item => assay.AssayTitle)</h3>
+                                    <div class="icon">
+                                        <i class="lnr lnr-chevron-right"></i>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="accordion-content">
+
+                                @Html.HiddenFor(item => assay.AssayTypeID)
+                                @Html.HiddenFor(item => assay.WorkOrderID)
+                                @Html.HiddenFor(item => assay.Complete)
+                                @Html.HiddenFor(item => assay.AssayTitle)
+                                @Html.HiddenFor(item => assay.Description)
+
+                                @foreach (var test in assay.Tests)
+                                {
+                                    <div class="col-md-11 pb">
+                                        @Html.CheckBoxFor(item => test.Selected)
+                                        @Html.DisplayFor(item => test.TestTitle)
+
+                                        @Html.HiddenFor(item => test.TestProtocol)
+                                        @Html.HiddenFor(item => test.TimeToComplete)
+                                        @Html.HiddenFor(item => test.BasePrice)
+                                        @Html.HiddenFor(item => test.AssayTestTypeID)
+                                    </div>
+                                }
+
+                            </div>
+                        </div>
+                        <!--Accordion item-->
+
+                    }
+
+
+                </div>
+            </div>
+        </div>
+        <center>
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+        </center>
+    </div>
+</div>
+}
+
+        
+
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }

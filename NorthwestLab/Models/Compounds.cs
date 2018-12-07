@@ -13,8 +13,9 @@ namespace NorthwestLab.Models
         [Key]
         public int CompoundID { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
         public int CustomerID { get; set; }
+
         public virtual Customers Customers { get; set; }
+        public virtual ICollection<Samples> Samples { get; set; }
     }
 }
