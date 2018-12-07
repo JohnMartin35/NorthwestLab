@@ -32,6 +32,7 @@ namespace NorthwestLab.Models
 
 
         //Foreign Key Connect to State table
+        [Display(Name = "State/Province"), Required(ErrorMessage = "State/Province is required")]
         public int State_ProvinceID { get; set; }
         public virtual State_Province State_Province { get; set; }
 
@@ -42,7 +43,7 @@ namespace NorthwestLab.Models
         public string Notes { get; set; }
 
         [Display(Name = "Phone Number"), Required(ErrorMessage = "Phone number is required")]
-        [RegularExpression(@"^\(?\d{3}[) ]?\d{3}[- ]\d{4}$", ErrorMessage = "Invalid phone number format")]
+        [RegularExpression(@"^\(?\d{3}[) -]?\s?\d{3}[- ]?\d{4}$", ErrorMessage = "Invalid phone number format")]
         public string Phone { get; set; }
 
     }

@@ -235,6 +235,7 @@
     <Compile Include="Models\QualitativeResults.cs" />
     <Compile Include="Models\QuantitativeFileTypes.cs" />
     <Compile Include="Models\QuantitativeResults.cs" />
+    <Compile Include="Models\QuotesViewModel.cs" />
     <Compile Include="Models\RoleViewModel.cs" />
     <Compile Include="Models\Samples.cs" />
     <Compile Include="Models\SampleTubes.cs" />
@@ -638,6 +639,7 @@
     <Content Include="Views\Shared\_BlankLayout.cshtml" />
     <Content Include="Views\Client\Index.cshtml" />
     <Content Include="Views\Client\Create.cshtml" />
+    <Content Include="Views\Client\Quotes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
